@@ -12,112 +12,105 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Header scroll effect
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('.header');
-    const scrolled = window.pageYOffset;
-    
-    if (scrolled > 100) {
-        header.style.background = 'rgba(10, 10, 10, 0.98)';
-        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
-    } else {
-        header.style.background = 'rgba(10, 10, 10, 0.95)';
-        header.style.boxShadow = 'none';
-    }
-});
-
 // Intersection Observer for fade-in animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver(function(entries) {
+const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-            observer.unobserve(entry.target);
+            entry.target.classList.add('visible');
         }
     });
 }, observerOptions);
 
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', function() {
-    const elementsToAnimate = document.querySelectorAll('.feature-card, .showcase-card, .testimonial-card');
-    elementsToAnimate.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        observer.observe(element);
+document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+});
+
+// Navbar background change on scroll
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 100) {
+        nav.style.background = 'rgba(255, 255, 255, 0.98)';
+        nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+    } else {
+        nav.style.background = 'rgba(255, 255, 255, 0.95)';
+        nav.style.boxShadow = 'none';
+    }
+});
+
+// Parallax effect for hero section
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+});
+
+// Add hover effects to product cards
+document.querySelectorAll('.product-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px) scale(1.02)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0) scale(1)';
     });
 });
 
-// Add CSS for fade-in animation
+// Add some extra interactivity
+document.addEventListener('DOMContentLoaded', () => {
+    // Add loading animation
+    document.body.style.opacity = '0';
+    setTimeout(() => {
+        document.body.style.transition = 'opacity 0.5s ease';
+        document.body.style.opacity = '1';
+    }, 100);
+
+    // Add click effect to CTA button
+    const ctaButton = document.querySelector('.cta-button');
+    if (ctaButton) {
+        ctaButton.addEventListener('click', (e) => {
+            // Create ripple effect
+            const ripple = document.createElement('span');
+            const rect = ctaButton.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.position = 'absolute';
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.style.background = 'rgba(255,255,255,0.5)';
+            ripple.style.borderRadius = '50%';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple 0.6s linear';
+            ripple.style.pointerEvents = 'none';
+            
+            ctaButton.style.position = 'relative';
+            ctaButton.style.overflow = 'hidden';
+            ctaButton.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+    }
+});
+
+// Add CSS for ripple animation
 const style = document.createElement('style');
 style.textContent = `
-    .fade-in {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
+    @keyframes ripple {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
     }
 `;
 document.head.appendChild(style);
-
-// Button click handlers
-document.addEventListener('DOMContentLoaded', function() {
-    // Primary CTA button
-    const primaryCTA = document.querySelector('.cta-button.primary');
-    if (primaryCTA) {
-        primaryCTA.addEventListener('click', function() {
-            // Scroll to products section
-            const productsSection = document.querySelector('#products');
-            if (productsSection) {
-                productsSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    }
-    
-    // Secondary CTA button
-    const secondaryCTA = document.querySelector('.cta-button.secondary');
-    if (secondaryCTA) {
-        secondaryCTA.addEventListener('click', function() {
-            // Scroll to products section
-            const productsSection = document.querySelector('#products');
-            if (productsSection) {
-                productsSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    }
-});
-
-// Mobile menu toggle (for future implementation)
-function toggleMobileMenu() {
-    const navMenu = document.querySelector('.nav-menu');
-    navMenu.classList.toggle('active');
-}
-
-// Parallax effect for hero section
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const heroImg = document.querySelector('.hero-img');
-    
-    if (heroImg) {
-        const speed = 0.5;
-        heroImg.style.transform = `translateY(${scrolled * speed}px)`;
-    }
-});
-
-// Add loading animation
-window.addEventListener('load', function() {
-    document.body.classList.add('loaded');
-});
-
-// Preload images
-function preloadImages() {
-    const images = [
-        'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',

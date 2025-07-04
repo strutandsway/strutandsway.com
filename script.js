@@ -101,6 +101,35 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 600);
         });
     }
+
+    // Add mouse movement effect to hero
+    const hero = document.querySelector('.hero');
+    const floatingElements = document.querySelectorAll('.floating-element');
+    
+    hero.addEventListener('mousemove', (e) => {
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        
+        floatingElements.forEach((element, index) => {
+            const speed = (index + 1) * 0.5;
+            const xPos = (x - 0.5) * speed * 50;
+            const yPos = (y - 0.5) * speed * 50;
+            
+            element.style.transform = `translate(${xPos}px, ${yPos}px)`;
+        });
+    });
+
+    // Add random twinkling effect
+    setInterval(() => {
+        floatingElements.forEach(element => {
+            if (Math.random() < 0.3) {
+                element.style.animation = 'pulse 0.5s ease-in-out';
+                setTimeout(() => {
+                    element.style.animation = `float ${4 + Math.random() * 2}s ease-in-out infinite`;
+                }, 500);
+            }
+        });
+    }, 2000);
 });
 
 // Add CSS for ripple animation

@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strut & Sway - Premium Consumer Goods</title>
+    <title>Strut & Sway - Elevate Your Everyday</title>
+    <!-- Google Fonts: Inter for body, Montserrat for headings -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav>
         <div class="container">
             <div class="nav-container">
-                <a href="#" class="logo">Strut & Sway</a>
+                <a href="#home" class="logo">Strut & Sway</a>
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -22,31 +24,35 @@
     </nav>
 
     <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="floating-element">✨</div>
-        <div class="floating-element">🚀</div>
-        <div class="floating-element">💎</div>
-        <div class="floating-element">🌟</div>
-        <div class="floating-element">🎯</div>
-        <div class="floating-element">💫</div>
-        
+        <!-- Background image for the hero section will be set in CSS -->
         <div class="hero-content">
             <h1>Strut & Sway</h1>
-            <p>Premium consumer goods that elevate your everyday moments with style, innovation, and uncompromising quality</p>
+            <p>Premium consumer goods that elevate your everyday moments with style, innovation, and uncompromising quality.</p>
             <a href="#products" class="cta-button">Explore Products</a>
+        </div>
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <div class="arrow-down"></div>
         </div>
     </section>
 
     <section id="about" class="about">
         <div class="container">
             <div class="about-content fade-in">
-                <div class="about-text">
-                    <h2>Crafting Excellence</h2>
-                    <p>At Strut & Sway, we believe that the best products come from a perfect blend of innovation, quality, and attention to detail. Our team is dedicated to creating consumer goods that not only meet your needs but exceed your expectations.</p>
-                    <p>From concept to creation, every product in our collection is thoughtfully designed to enhance your daily life with style, functionality, and uncompromising quality.</p>
-                </div>
                 <div class="about-image">
-                    <div>Premium Quality • Innovative Design • Sustainable Future</div>
+                    <!-- Placeholder image from Unsplash. Replace with your own image. -->
+                    <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="About Us Image">
+                </div>
+                <div class="about-text">
+                    <h2>Crafting Excellence, Elevating Experiences</h2>
+                    <p>At Strut & Sway, we believe that exceptional products are born from a perfect blend of innovation, quality, and meticulous attention to detail. Our dedicated team is committed to creating consumer goods that not only meet your needs but consistently exceed your highest expectations.</p>
+                    <p>From initial concept to final creation, every item in our collection is thoughtfully designed to seamlessly integrate into and enhance your daily life with unparalleled style, intuitive functionality, and uncompromising quality. We are passionate about bringing you products that truly make a difference.</p>
+                    <ul class="about-features">
+                        <li><span>&#10003;</span> Premium Quality Materials</li>
+                        <li><span>&#10003;</span> Innovative & Ergonomic Design</li>
+                        <li><span>&#10003;</span> Commitment to Sustainability</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -54,22 +60,31 @@
 
     <section id="products" class="products">
         <div class="container">
-            <h2 class="section-title fade-in">Our Product Range</h2>
+            <h2 class="section-title fade-in">Discover Our Curated Collections</h2>
             <div class="products-grid">
                 <div class="product-card fade-in">
-                    <div class="product-icon">🏠</div>
+                    <div class="product-icon">
+                        <!-- Placeholder image from Unsplash. Replace with your own image. -->
+                        <img src="https://images.unsplash.com/photo-1588850689408-e79435422784?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Home Essentials">
+                    </div>
                     <h3>Home Essentials</h3>
-                    <p>Transform your living space with our curated collection of premium home goods designed for modern living.</p>
+                    <p>Transform your living space into a sanctuary of comfort and style with our meticulously curated collection of premium home goods. Designed for modern living, each item blends aesthetic appeal with practical functionality, creating environments that inspire and delight.</p>
                 </div>
                 <div class="product-card fade-in">
-                    <div class="product-icon">✨</div>
+                    <div class="product-icon">
+                        <!-- Placeholder image from Unsplash. Replace with your own image. -->
+                        <img src="https://images.unsplash.com/photo-1590439471363-f2560370483e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Personal Care">
+                    </div>
                     <h3>Personal Care</h3>
-                    <p>Indulge in luxury personal care products that combine natural ingredients with innovative formulations.</p>
+                    <p>Indulge your senses and elevate your daily routine with our luxurious personal care products. Crafted with the finest natural ingredients and innovative formulations, they offer a rejuvenating experience that nourishes your body and soothes your mind, promoting holistic well-being.</p>
                 </div>
                 <div class="product-card fade-in">
-                    <div class="product-icon">🎯</div>
-                    <h3>Lifestyle</h3>
-                    <p>Discover products that seamlessly integrate into your daily routine, enhancing every moment with thoughtful design.</p>
+                    <div class="product-icon">
+                        <!-- Placeholder image from Unsplash. Replace with your own image. -->
+                        <img src="https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Lifestyle">
+                    </div>
+                    <h3>Lifestyle & Tech</h3>
+                    <p>Discover innovative products that seamlessly integrate into your dynamic daily routine, enhancing every moment with thoughtful design and cutting-edge technology. From smart gadgets to stylish accessories, our lifestyle collection empowers you to live smarter and more vibrantly.</p>
                 </div>
             </div>
         </div>
@@ -79,7 +94,7 @@
         <div class="container">
             <div class="contact-content fade-in">
                 <h2>Get in Touch</h2>
-                <p>Have questions about our products or want to learn more about Strut & Sway? We'd love to hear from you.</p>
+                <p>Have questions about our premium products or want to learn more about the Strut & Sway philosophy? We'd love to hear from you. Reach out to us anytime!</p>
                 <a href="mailto:admin@strutandsway.com" class="contact-email">admin@strutandsway.com</a>
             </div>
         </div>
